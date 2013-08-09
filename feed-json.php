@@ -94,11 +94,8 @@ class feed_json {
 			}
 		}
 
-		return (
-			$template_file !== false
-			? $template_file
-			: $template
-			);
+		$template_file !== false ? $template_file : $template;
+		return apply_filters( 'feed-json-template-file', $template_file );
 	}
 }
 new feed_json();
