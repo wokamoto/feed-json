@@ -45,12 +45,14 @@ if ( have_posts() ) {
 		}
 		$single["categories"] = $categories;
 
-		// tag
-		$tags = array();
-		foreach((array)get_the_tags() as $tag) { 
-			$tags[] = $tag->name; 
+		// tags
+		$single["tags"] = array();
+
+		$tags = get_the_tags();
+
+		if ( ! empty( $tags) ) {
+			$single["tags"] = wp_list_pluck( $tags, 'name' );
 		}
-		$single["tags"] = $tags;
 
 		$json[] = $single;
 	}
