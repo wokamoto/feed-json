@@ -50,11 +50,15 @@ if ( have_posts() ) {
 			}
 
 			// category
-			$categories = array();
-			foreach((array)get_the_category() as $category) { 
-				$categories[] = $category->cat_name; 
+			$single["categories"] = array();
+
+			$categories = get_the_category();
+
+			if ( ! empty( $categories ) ) {
+				$single["categories"] = wp_list_pluck( $categories, 'cat_name' );
 			}
-			$single["categories"] = $categories;
+
+			$json[] = $single;
 
 			// tags
 			$single["tags"] = array();
