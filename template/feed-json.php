@@ -58,8 +58,6 @@ if ( have_posts() ) {
 				$single["categories"] = wp_list_pluck( $categories, 'cat_name' );
 			}
 
-			$json[] = $single;
-
 			// tags
 			$single["tags"] = array();
 
