@@ -28,11 +28,11 @@ License:
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-$feed_json = feed_json->get_instance();
+$feed_json = feed_json::get_instance();
 $feed_json->init();
 
-register_activation_hook(__FILE__, array($feed_json, 'add_feed_json_once');
-register_deactivation_hook(__FILE__, array($feed_json, 'remove_feed_json');
+register_activation_hook( __FILE__, array($feed_json, 'add_feed_json_once') );
+register_deactivation_hook( __FILE__, array($feed_json, 'remove_feed_json') );
 
 class feed_json {
 	static $instance;
