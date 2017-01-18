@@ -43,7 +43,7 @@ class feed_json {
 	public static function get_instance() {
 		if( !isset( self::$instance ) ) {
 			$c = __CLASS__;
-			self::$instance = new $c();    
+			self::$instance = new $c();
 		}
 		return self::$instance;
 	}
@@ -79,7 +79,7 @@ class feed_json {
 	}
 
 	static public function add_feed_json() {
-		add_feed('json', array($this, 'do_feed_json'));
+		add_feed('json', array('self', 'do_feed_json'));
 	}
 
 	public function do_feed_json() {
