@@ -12,6 +12,22 @@ if ( have_posts() ) {
 
 	// Make sure query args are always in the same order
 	ksort( $query_array );
+	
+	if ( is_search() ){
+						
+		$search_query = array();
+		
+		if ( ! empty($query_array) ) {
+			foreach($query_array as $key => $value) {
+				if ($key !== 'feed'){
+					$search_query[$key] = $value;
+				}
+			}
+		}
+		
+		$wp_query = new WP_Query($search_query); //replace results with search results
+		
+	}
 
 	$json = array();
 
